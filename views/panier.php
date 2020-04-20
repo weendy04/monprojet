@@ -28,9 +28,10 @@ ob_start();
 			</tr>
 			
         <?php endforeach ?>
-		<button type="button" class="btn btn-outline-Success"> Commander </button>
+		
     </tbody>
 </table>
+<button type="button" class="btn btn-outline-Success"> Commander </button>
 <?php
 $title = 'Panier';
 $content = ob_get_clean();

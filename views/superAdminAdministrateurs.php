@@ -28,7 +28,7 @@ ob_start();
 									<input type="hidden" name="idUtilisateur" value=<?=$utilisateur['idUtilisateur']?>>
 								</form>
 								<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$utilisateur['idUtilisateur']?>">
-									Supprimer
+									Désactiver
 								</button>
 								<?php include 'superAdminDesactiverAdmin.php' ?>
 							<?php endif ?>

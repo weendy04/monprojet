@@ -28,12 +28,12 @@ function getEnTeteCommandes_idUtilisateur($idUtilisateur) {
     return $donnees;
 }
 
-function updateEnTeteCommandes_idStatut($idStatut, $idEnTeteCommande) {
+function updateEnTeteCommandes_idStatut($idEnTeteCommande, $idStatut) {
     $query = 'UPDATE enTeteCommande SET idStatut = :idStatut'; 
     $query =  ' WHERE idEnTeteCommande = :idEnTeteCommande;';
     $db = getDb();
     $reponse = $db->prepare($query);
-    $reponse->execute(array_merge(array('idEnTeteCommande' => $idEnTeteCommande), $values));
+    $reponse->execute(array('idEnTeteCommande' => $idEnTeteCommande, 'idStatut' => $idStatut));
     $reponse->closeCursor(); // Termine le traitement de la requête
 }
 

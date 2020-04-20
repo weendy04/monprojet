@@ -8,7 +8,7 @@ ob_start();
             <th scope="col">Article</th>
             <th scope="col">Prix</th>
             <th scope="col">Description</th>
-            <th scope="col">nomImageArticle</th>
+            <th scope="col">ImageArticle</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -23,14 +23,19 @@ ob_start();
 				<td><?=$article['nomImageArticle']?></td>
 				<td>
 					 <div class="row">
-							<form method ='get' action="formulaireModificationArticle">
+							<form method ='post' action="formulaireModificationArticle">
 								<input type="hidden" name="idArticle" value=<?=$article['idArticle']?>>
-								<button class="btn btn-outline-success" type="submit">Modifier</button>
-							</form>					
-						<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$article['idArticle']?>">
+								<input type="hidden" name="nomArticle" value=<?=$article['nomArticle']?>>
+								<!--<input type="hidden" name="prixArticle" value="<?//=$article['prixArticle']?>">	-->			
+								<input type="hidden" name="descriptionArticle" value=<?=$article['descriptionArticle']?>>					
+								<input type="hidden" name="nomImageArticle" value=<?=$article['nomImageArticle']?>>
+								<button class="btn btn-outline-success" type="submit">Modifier</button> 
+							</form>	
+							<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$article['idArticle']?>">
 							Désactiver
 						</button>
 						<?php include 'adminDesactiverArticle.php' ?>
+						
 					</div>
 				</td>
 			</tr>

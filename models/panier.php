@@ -5,21 +5,22 @@ function getPanier_idUtilisateur($idUtilisateur) {
     $db = getDb();
     $reponse = $db->prepare('SELECT idArticle FROM panier WHERE idUtilisateur = :idUtilisateur');
     $reponse->execute(array('idUtilisateur' => $idUtilisateur));
-    $donnees = $reponse->fetch();	
+    $donnees = $reponse->fetchAll();	
     return $donnees;
 }
 
 function getArticlePanier($idUtilisateur) {
     $db = getDb();
-	$ArticlePanier = getPanier_idUtilisateur(':idUtilisateur');
-	foreach ($ArticlePanier as $idArticle) {
-        $queryIn = $query.$idArticle.',';
+	$ArticlePanier = getPanier_idUtilisateur($idUtilisateur);
+	$queryIn='';
+	foreach ($ArticlePanier as $idArticle => $value) {
+        $queryIn = $queryIn.' '.$idArticle.',';
     }
-	$queryIn = substr($query, 0, -1);
+	$queryIn = substr($queryIn, 0, -1);
     $reponse = $db->prepare(
 	'SELECT * from articles 
 	where idArticle in('.$queryIn.')');
-    $donnees = $reponse->fetch();
+    $donnees = $reponse->fetchAll();
     $reponse->closeCursor(); // Termine le traitement de la requête
     return $donnees;
 }

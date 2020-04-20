@@ -23,7 +23,7 @@ ob_start();
 				<td><?=$article['nomImageArticle']?></td>
 				<td>
 					 <div class="row">			
-						<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$article['idArticle']?>">
+						<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal<?=$article['idArticle']?>">
 							Ré-activer
 						</button>
 						<?php include 'adminReactiverArticle.php' ?>

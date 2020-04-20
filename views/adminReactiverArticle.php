@@ -14,7 +14,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 		<form method="post" action="adminReactiverArticle">
             <input type="hidden" name="idArticle" value=<?=$article['idArticle']?>>
-            <button class="btn btn-outline-danger" type="submit">Ré-activer</button>
+            <button class="btn btn-outline-success" type="submit">Ré-activer</button>
         </form>
       </div>
     </div>

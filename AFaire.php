@@ -7,4 +7,4 @@
 
 Plus : 
 - une fois l'inscription faite directement être connecter.
-- mettre un motif de suppression
+- quantité

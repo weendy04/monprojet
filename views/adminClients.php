@@ -26,7 +26,7 @@ ob_start();
 							</button>
 							<?phpinclude 'grader.php' ?>
 							<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$utilisateur['idUtilisateur']?>">
-								Supprimer
+								Désactiver
 							</button>
 							<?php include 'adminDesactiverClient.php' ?>
 						</div>

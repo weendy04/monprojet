@@ -22,8 +22,8 @@ ob_start();
 				<td>
 					<div class="row">
 						<?php if($commande['idStatut'] != 3):?>		
-							<form method ='get' action="commandeStatut">
-								<input type="hidden" name="idStatut" value=<?=$commande['idStatut']?>>
+							<form method ='post' action="formulaireCommandeStatut">
+								<input type="hidden" name="idEnTeteCommande" value=<?=$commande['idEnTeteCommande']?>>
 								<button class="btn btn-outline-success" type="submit">Modifier statut</button>
 							</form>
 						<?php endif ?>

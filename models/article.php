@@ -18,7 +18,7 @@ function getArticles_idArticle($idArticle) {
     $reponse->closeCursor(); // Termine le traitement de la requête
     return $donnees;
 }
-/* modifiere un article */
+/* modifier un article */
 function updateArticles_idArticle($idArticle, $values) {
     $query = 'UPDATE articles SET';
     foreach ($values as $name => $value) {

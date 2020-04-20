@@ -1,12 +1,12 @@
 <?php
 require 'models/article.php';
 session_start();
-if (empty($_GET['idArticle']))
+if (empty($_POST['idArticle']))
 {
 	header('Location: index');
 	exit();
 }
-if(!empty($_GET['idArticle'])&& !empty ($_POST['nomArticle']) && !empty ($_POST['prixArticle']) && !empty ($_POST['descriptionArticle'])&& !empty ($_POST['nomImageArticle']))
+if(!empty($_POST['idArticle'])&& !empty ($_POST['nomArticle']) && !empty ($_POST['prixArticle']) && !empty ($_POST['descriptionArticle'])&& !empty ($_POST['nomImageArticle']))
 	{
 		$idArticle = $_POST['idArticle'];
 		$nomArticle = $_POST['nomArticle'];

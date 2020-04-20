@@ -28,22 +28,45 @@ INSERT INTO utilisateurs (idRole, nom, prenom, email, mdp, isActive) -- /!\ Le m
 
 /*Article*/				
 INSERT INTO articles (nomArticle, prixArticle, descriptionArticle, nomImageArticle, isActive)
-	VALUES  ('Armoire', 50.50, 'Petite armoire de rangement', 'armoire.jpg',1),
-		('Cage', 200.00, 'Cage pour animaux', 'cage.jpg',1),
-		('Parc', 100.00, 'Parc pour animaux', 'parc.jpg',1);
+	VALUES  ('Armoire', 50.50, 'Armoire de rangement : dimension 100x50x80', 'armoire.jpg',1),
+		('Cage', 200.00, 'Cage pour animaux: dimension 100x100x150', 'cage.jpg',1),
+		('Parc', 250.00, 'Parc pour animaux: dimension 200x120x80', 'parc.jpg',1),
+		('Armoire1', 40.50, 'Armoire de rangement: dimension 90x40x60', 'armoire.jpg',1),
+		('Cage1', 150.00, 'Cage pour animaux: dimension 100x50x80', 'cage.jpg',1),
+		('Parc1', 300.00, 'Parc pour animaux: dimension 250x180x80', 'parc.jpg',0),
+		('Armoire2', 30.50, 'Armoire de rangement: dimension 50x50x50', 'armoire.jpg',1),
+		('Cage2', 100.00, 'Cage pour animaux: dimension 50x50x40', 'cage.jpg',1),
+		('Parc2', 100.00, 'Parc pour animaux: dimension 150x90x60', 'parc.jpg',0);
 				
 /*Commande*/
 INSERT INTO statut (nomStatut)
 	VALUES  ('En cours'),
 		('En attente'),
-		('Envoyer'),
-		('Client');
+		('Envoyer');
 INSERT INTO enTeteCommande (idUtilisateur, idStatut, dateCommande)
-	VALUES  (1, 1,'2012-12-12'),
-		(2, 2,'2012-12-12'),
-		(3, 3,'2012-12-12');
+	VALUES  (1, 1,'2019-12-12'),
+		(2, 2,'2020-12-12'),
+		(3, 3,'2014-12-12'),
+		(1, 1,'2012-12-12'),
+		(2, 2,'2012-09-12'),
+		(3, 3,'2019-12-12'),
+		(1, 1,'2012-12-12'),
+		(1, 2,'2016-08-12'),
+		(2, 3,'2012-12-31');
+		
 INSERT INTO detailsCommande (idEnTeteCommande, idArticle, prixUnitaire)
 	VALUES  (1, 1, 50.50),
 		(2, 2, 200.00),
-		(3, 3, 100.00);
+		(3, 3, 100.00),
+		(2, 1, 50.50),
+		(6, 2, 200.00),
+		(7, 3, 100.00),
+                (7, 1, 50.50),
+		(5, 2, 200.00),
+		(4, 3, 100.00);
+INSERT INTO panier (idUtilisateur, idArticle)
+	VALUES  (1,1),
+		(1,2),
+		(3,2);	
+
 

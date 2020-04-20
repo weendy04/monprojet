@@ -5,7 +5,9 @@ session_start();
 if(!empty($_POST['idArticle']))
 {
     $isActive = 0;
-	$article = isActiveArticle($isActive, $_POST['idArticle']);
+	$article = isActiveArticle($_POST['idArticle'], $isActive);
     header('Location: adminArticles');
     exit();
 }
+
+include "adminDesactiverArticle.php";
