@@ -9,9 +9,9 @@ CREATE TABLE utilisateurs (idUtilisateur INT PRIMARY KEY AUTO_INCREMENT, idRole 
 /*Article*/
 CREATE TABLE articles (idArticle INT PRIMARY KEY AUTO_INCREMENT, nomArticle VARCHAR(255), prixArticle NUMERIC (10,2), descriptionArticle VARCHAR(500), nomImageArticle VARCHAR(255), isActive INT)ENGINE = INNODB;
 /*Commande*/
-CREATE TABLE panier (idUtilisateur INT, idArticle INT, FOREIGN KEY (idUtilisateur) REFERENCES utilisateurs (idUtilisateur), FOREIGN KEY (idArticle) REFERENCES articles (idArticle))ENGINE = INNODB;
+CREATE TABLE panier (idPanier INT PRIMARY KEY AUTO_INCREMENT, idUtilisateur INT, idArticle INT, FOREIGN KEY (idUtilisateur) REFERENCES utilisateurs (idUtilisateur), FOREIGN KEY (idArticle) REFERENCES articles (idArticle))ENGINE = INNODB;
 CREATE TABLE statut(idStatut INT PRIMARY KEY AUTO_INCREMENT, nomStatut VARCHAR(255))ENGINE = INNODB;
-CREATE TABLE enTeteCommande(idEnTeteCommande INT PRIMARY KEY AUTO_INCREMENT, idUtilisateur INT, idStatut INT, dateCommande DATE, FOREIGN KEY (idUtilisateur) REFERENCES utilisateurs (idUtilisateur), FOREIGN KEY (idStatut) REFERENCES statut (idStatut))ENGINE = INNODB;
+CREATE TABLE enTeteCommande(idEnTeteCommande INT PRIMARY KEY AUTO_INCREMENT, idUtilisateur INT, idStatut INT, prixTotal NUMERIC (10,2), dateCommande DATE, FOREIGN KEY (idUtilisateur) REFERENCES utilisateurs (idUtilisateur), FOREIGN KEY (idStatut) REFERENCES statut (idStatut))ENGINE = INNODB;
 CREATE TABLE detailsCommande(idDetailsCommande INT PRIMARY KEY AUTO_INCREMENT, idEnTeteCommande INT, idArticle INT, prixUnitaire NUMERIC (10,2), FOREIGN KEY (idArticle) REFERENCES articles (idArticle), FOREIGN KEY (idEnTeteCommande) REFERENCES enTeteCommande (idEnTeteCommande))ENGINE = INNODB; 
 
 -- -----------------------------------------------------------------------------------------------------------------------
@@ -43,16 +43,16 @@ INSERT INTO statut (nomStatut)
 	VALUES  ('En cours'),
 		('En attente'),
 		('Envoyer');
-INSERT INTO enTeteCommande (idUtilisateur, idStatut, dateCommande)
-	VALUES  (1, 1,'2019-12-12'),
-		(2, 2,'2020-12-12'),
-		(3, 3,'2014-12-12'),
-		(1, 1,'2012-12-12'),
-		(2, 2,'2012-09-12'),
-		(3, 3,'2019-12-12'),
-		(1, 1,'2012-12-12'),
-		(1, 2,'2016-08-12'),
-		(2, 3,'2012-12-31');
+/*INSERT INTO enTeteCommande (idUtilisateur, idStatut, prixTotal, dateCommande)
+	VALUES  (1, 1,'2019-12-12', 50.50),
+		(2, 2,'2020-12-12', 250.50),
+		(3, 3,'2014-12-12',100.00),
+		(1, 1,'2012-12-12',,),
+		(2, 2,'2012-09-12',),
+		(3, 3,'2019-12-12',),
+		(1, 1,'2012-12-12',),
+		(1, 2,'2016-08-12',),
+		(2, 3,'2012-12-31',);
 		
 INSERT INTO detailsCommande (idEnTeteCommande, idArticle, prixUnitaire)
 	VALUES  (1, 1, 50.50),
@@ -63,7 +63,7 @@ INSERT INTO detailsCommande (idEnTeteCommande, idArticle, prixUnitaire)
 		(7, 3, 100.00),
                 (7, 1, 50.50),
 		(5, 2, 200.00),
-		(4, 3, 100.00);
+		(4, 3, 100.00);*/
 INSERT INTO panier (idUtilisateur, idArticle)
 	VALUES  (1,1),
 		(1,2),

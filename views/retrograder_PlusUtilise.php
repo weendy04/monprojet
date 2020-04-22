@@ -8,13 +8,13 @@
         </button>
       </div>
       <div class="modal-body">
-        Voulez-vous vraiment monter de grade l'utilisateur ?
+        Voulez-vous vraiment retrograder l'utilisateur ?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <form action="grader">
+        <form action="role">
             <input type="hidden" name="idUtilisateur" value=<?=$utilisateur['idUtilisateur']?>>
-            <button class="btn btn-outline-success" type="submit">Monter de grade</button>
+            <button class="btn btn-outline-success" type="submit">Retrograder</button>
         </form>
       </div>
     </div>

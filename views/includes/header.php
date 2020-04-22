@@ -44,11 +44,12 @@
 				</li>
 			<?php endif?>
 		</ul>
-		<a href="/panier" class="btn btn-primary">Panier</a>
+		
 		<?php if(empty($_SESSION['email'])):?>
 			<a class="btn btn-outline-success" href="/formulaireConnexion">Connexion</a>
 			<a class="btn btn-outline-success" href="/formulaireInscription">Inscription</a>
 		<?php else: ?>
+			<a href="/panier" class="btn btn-primary">Panier</a>
 			<li class="btn btn-outline-success nav-item dropdown " >
 				<a class="nav-link dropdown-toggle" href="/index" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				 Salut <?=$_SESSION['prenom']?> <?=$_SESSION['nom']?>

@@ -1,37 +1,49 @@
 <?php
 require 'db.php';
 
-function getPanier_idUtilisateur($idUtilisateur) {
-    $db = getDb();
-    $reponse = $db->prepare('SELECT idArticle FROM panier WHERE idUtilisateur = :idUtilisateur');
-    $reponse->execute(array('idUtilisateur' => $idUtilisateur));
-    $donnees = $reponse->fetchAll();	
-    return $donnees;
-}
-
+/* Montre tout les articles du panier d'un utilisateur via son id utilisateur*/
 function getArticlePanier($idUtilisateur) {
     $db = getDb();
-	$ArticlePanier = getPanier_idUtilisateur($idUtilisateur);
-	$queryIn='';
-	foreach ($ArticlePanier as $idArticle => $value) {
-        $queryIn = $queryIn.' '.$idArticle.',';
-    }
-	$queryIn = substr($queryIn, 0, -1);
-    $reponse = $db->prepare(
-	'SELECT * from articles 
-	where idArticle in('.$queryIn.')');
-    $donnees = $reponse->fetchAll();
-    $reponse->closeCursor(); // Termine le traitement de la requête
+	$reponse = $db->prepare('SELECT p.idPanier, p.idArticle, a.nomArticle, a.prixArticle 
+			FROM panier p
+			INNER JOIN articles a
+				ON a.idArticle = p.idArticle
+			WHERE idUtilisateur = :idUtilisateur');
+	$reponse->execute(array('idUtilisateur' => $idUtilisateur));
+    $donnees = $reponse->fetchAll();	// plusieurs données
+	$reponse->closeCursor();
     return $donnees;
 }
 
-function deleteArticlePanier($idArticle) {
+/*Affiche le prix total du panier*/
+function getPrixTotalPanier($idUtilisateur) {
     $db = getDb();
-    $reponse = $db->prepare('DELETE FROM panier WHERE idArticle = :idArticle');
-    $reponse->execute(array('idArticle' => $idArticle));
-    $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse = $db->prepare('SELECT SUM(a.prixArticle) AS prixTotal
+		FROM panier p
+		INNER JOIN articles a 
+		ON a.idArticle = p.idArticle
+		WHERE idUtilisateur = :idUtilisateur');
+    $reponse->execute(array('idUtilisateur' => $idUtilisateur));
+	$donnees = $reponse->fetch(); // une seul données
+    $reponse->closeCursor();
+	return $donnees;
 }
 
+/*Supprimer un article via l'id du panier*/
+function deleteArticlePanier($idPanier) {
+    $db = getDb();
+    $reponse = $db->prepare('DELETE FROM panier WHERE idPanier = :idPanier');
+    $reponse->execute(array('idPanier' => $idPanier));
+    $reponse->closeCursor();
+}
+/*Supprime le panier après commande*/
+function deletePanier_idUtilisateur($idUtilisateur) {
+    $db = getDb();
+    $reponse = $db->prepare('DELETE FROM panier WHERE idUtilisateur = :idUtilisateur');
+    $reponse->execute(array('idUtilisateur' => $idUtilisateur));
+    $reponse->closeCursor();
+}
+/*Ajoute un article dans le panier*/
 function newArticlePanier($idUtilisateur, $idArticle) {
     $query = 'INSERT INTO panier SET idUtilisateur = :idUtilisateur, idArticle = :idArticle';
     $db = getDb();

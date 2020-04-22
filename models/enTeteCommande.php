@@ -1,6 +1,7 @@
 <?php
 require 'db.php';
 
+/*Reprend toutes les en tête des commandes*/
 function getEnTeteCommandes() {
     $db = getDb();
     $reponse = $db->query(
@@ -14,7 +15,7 @@ function getEnTeteCommandes() {
     $reponse->closeCursor(); // Termine le traitement de la requête
     return $donnees;
 }
-
+/* reprend les commandes pour un utilisateur spécifique*/
 function getEnTeteCommandes_idUtilisateur($idUtilisateur) {
     $db = getDb();
 	$reponse = $db->prepare('SELECT e.idEnTeteCommande,e.idUtilisateur, s.nomStatut, e.dateCommande
@@ -28,26 +29,16 @@ function getEnTeteCommandes_idUtilisateur($idUtilisateur) {
     return $donnees;
 }
 
+/*Modifie le statut d'une commande*/
 function updateEnTeteCommandes_idStatut($idEnTeteCommande, $idStatut) {
-    $query = 'UPDATE enTeteCommande SET idStatut = :idStatut'; 
-    $query =  ' WHERE idEnTeteCommande = :idEnTeteCommande;';
+    $query = 'UPDATE enTeteCommande SET idStatut = :idStatut
+			WHERE idEnTeteCommande = :idEnTeteCommande;';
     $db = getDb();
     $reponse = $db->prepare($query);
     $reponse->execute(array('idEnTeteCommande' => $idEnTeteCommande, 'idStatut' => $idStatut));
     $reponse->closeCursor(); // Termine le traitement de la requête
 }
 
-function newEnTeteCommande($values) {
-    $query = 'INSERT INTO enTeteCommande SET';
-    foreach ($values as $name => $value) {
-        $query = $query.' '.$name.' = :'.$name.',';
-    }
-    $query = substr($query, 0, -1);
-    $db = getDb();
-    $reponse = $db->prepare($query);
-    $reponse->execute($values);
-    $reponse->closeCursor(); // Termine le traitement de la requête
-}
 
 
 ?>

@@ -14,7 +14,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
         <form method="post" action="superAdminReactiverCompteUtilisateur">
             <input type="hidden" name="idUtilisateur" value=<?=$utilisateur['idUtilisateur']?>>
-            <button class="btn btn-outline-success" type="submit">Réactivé</button>
+            <button class="btn btn-outline-success" type="submit">Réactiver</button>
         </form>
       </div>
 

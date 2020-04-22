@@ -6,7 +6,7 @@ function getArticles() {
     $db = getDb();
     $reponse = $db->query('SELECT * FROM articles');
     $donnees = $reponse->fetchAll();
-    $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse->closeCursor();
     return $donnees;
 }
 /* Avoir un article avec son id*/
@@ -15,7 +15,7 @@ function getArticles_idArticle($idArticle) {
     $reponse = $db->prepare('SELECT * FROM articles WHERE idArticle = :idArticle');
     $reponse->execute(array('idArticle' => $idArticle));
     $donnees = $reponse->fetch();
-    $reponse->closeCursor(); // Termine le traitement de la requête
+    $reponse->closeCursor();
     return $donnees;
 }
 /* modifier un article */
@@ -32,11 +32,10 @@ function updateArticles_idArticle($idArticle, $values) {
 }
 /* Activer/ désactiver un article*/
 function isActiveArticle($idArticle, $isActive) {
-	// à cause de la foreign key! je dois d'abord supprimer dans le panier
 	$db = getDb();
     $reponse = $db->prepare('UPDATE articles SET isActive = :isActive where idArticle = :idArticle');
     $reponse->execute(array('idArticle' => $idArticle, 'isActive' => $isActive));
-    $reponse->closeCursor(); // Termine le traitement de la requête	
+    $reponse->closeCursor();
 }
 /* Crée un article*/
 function newArticle($values) {
@@ -48,7 +47,7 @@ function newArticle($values) {
     $db = getDb();
     $reponse = $db->prepare($query);
     $reponse->execute($values);
-    $reponse->closeCursor(); // Termine le traitement de la requête	
+    $reponse->closeCursor(); 
 }
 
 ?>

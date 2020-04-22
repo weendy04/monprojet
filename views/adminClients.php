@@ -8,7 +8,8 @@ ob_start();
             <th scope="col">nom</th>
             <th scope="col">prenom</th>
             <th scope="col">email</th>
-            <th scope="col">Action</th>
+            <th scope="col">Promouvoir</th>
+            <th scope="col">Désactiver</th>
         </tr>
     </thead>
     <tbody>
@@ -20,16 +21,17 @@ ob_start();
 					<td><?=$utilisateur['prenom']?></td>
 					<td><?=$utilisateur['email']?></td>
 					<td>
-						 <div class="row">
-							<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#modal<?=$utilisateur['idUtilisateur']?>">
-								grader
-							</button>
-							<?phpinclude 'grader.php' ?>
-							<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$utilisateur['idUtilisateur']?>">
-								Désactiver
-							</button>
-							<?php include 'adminDesactiverClient.php' ?>
-						</div>
+						<form method ='post' action="role">
+							<input type="hidden" name="idUtilisateur" value=<?=$utilisateur['idUtilisateur']?>>
+							<input type="hidden" name="idRole" value="2">
+							<button class="btn btn-outline-success" type="submit">Admin</button>
+						</form>
+					</td>
+					<td>
+						<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$utilisateur['idUtilisateur']?>">
+							Désactiver
+						</button>
+						<?php include 'adminDesactiverClient.php' ?>
 					</td>
 				</tr>
 			<?php endif ?>
