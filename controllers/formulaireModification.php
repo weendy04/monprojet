@@ -1,8 +1,14 @@
 <?php
 require 'models/utilisateur.php';
 session_start();
-if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['mdp']) && !empty($_POST['mdpVerif']))
+if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['ancienMdp']) && !empty($_POST['mdp']) && !empty($_POST['mdpVerif']))
 {
+	
+	$utilisateur_Id = getUtilisateurs_idUtilisateur($_POST['idUtilisateur']);
+	if(!password_verify($_POST['ancienMdp'], $utilisateur_Id['mdp']))
+	{
+		$error = 'Mauvais mdp !';
+	}
 	if ($_POST['mdp'] === $_POST['mdpVerif'])
 	{
 		$idUtilisateur = $_POST['idUtilisateur'];
@@ -20,5 +26,9 @@ if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) 
 		exit();
 	}
 }
+else
+	{
+		$error = 'Veuillez tout compléter!';
+	}
 include 'views/formulaireModification.php';
 ?>

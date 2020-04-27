@@ -15,4 +15,16 @@ function getDetailsCommande_idEnTeteCommande($idEnTeteCommande) {
     $reponse->closeCursor(); // Termine le traitement de la requête
     return $donnees;
 }
+
+/*Nouvelle commande*/
+function newDetailsCommandes($idUtilisateur, $idEnTeteCommande) {
+    $query = 'INSERT INTO detailscommande (idEnTeteCommande, idArticle, prixUnitaire)
+				SELECT :idEnTeteCommande, p.idArticle, a.prixArticle
+				FROM panier p
+				INNER JOIN articles a 
+				WHERE p.idUtilisateur = :idUtilisateur)';
+    $reponse = $db->prepare($query);
+    $reponse->execute(array('idUtilisateur' => $idUtilisateur, 'idEnTeteCommande' => $idEnTeteCommande));
+    $reponse->closeCursor();
+}
 ?>

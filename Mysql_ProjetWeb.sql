@@ -11,7 +11,7 @@ CREATE TABLE articles (idArticle INT PRIMARY KEY AUTO_INCREMENT, nomArticle VARC
 /*Commande*/
 CREATE TABLE panier (idPanier INT PRIMARY KEY AUTO_INCREMENT, idUtilisateur INT, idArticle INT, FOREIGN KEY (idUtilisateur) REFERENCES utilisateurs (idUtilisateur), FOREIGN KEY (idArticle) REFERENCES articles (idArticle))ENGINE = INNODB;
 CREATE TABLE statut(idStatut INT PRIMARY KEY AUTO_INCREMENT, nomStatut VARCHAR(255))ENGINE = INNODB;
-CREATE TABLE enTeteCommande(idEnTeteCommande INT PRIMARY KEY AUTO_INCREMENT, idUtilisateur INT, idStatut INT, prixTotal NUMERIC (10,2), dateCommande DATE, FOREIGN KEY (idUtilisateur) REFERENCES utilisateurs (idUtilisateur), FOREIGN KEY (idStatut) REFERENCES statut (idStatut))ENGINE = INNODB;
+CREATE TABLE enTeteCommande(idEnTeteCommande INT PRIMARY KEY AUTO_INCREMENT, idUtilisateur INT, idStatut INT, prixTotal NUMERIC (10,2), dateCommande DATETIME, FOREIGN KEY (idUtilisateur) REFERENCES utilisateurs (idUtilisateur), FOREIGN KEY (idStatut) REFERENCES statut (idStatut))ENGINE = INNODB;
 CREATE TABLE detailsCommande(idDetailsCommande INT PRIMARY KEY AUTO_INCREMENT, idEnTeteCommande INT, idArticle INT, prixUnitaire NUMERIC (10,2), FOREIGN KEY (idArticle) REFERENCES articles (idArticle), FOREIGN KEY (idEnTeteCommande) REFERENCES enTeteCommande (idEnTeteCommande))ENGINE = INNODB; 
 
 -- -----------------------------------------------------------------------------------------------------------------------
@@ -43,30 +43,56 @@ INSERT INTO statut (nomStatut)
 	VALUES  ('En cours'),
 		('En attente'),
 		('Envoyer');
-/*INSERT INTO enTeteCommande (idUtilisateur, idStatut, prixTotal, dateCommande)
-	VALUES  (1, 1,'2019-12-12', 50.50),
-		(2, 2,'2020-12-12', 250.50),
-		(3, 3,'2014-12-12',100.00),
-		(1, 1,'2012-12-12',,),
-		(2, 2,'2012-09-12',),
-		(3, 3,'2019-12-12',),
-		(1, 1,'2012-12-12',),
-		(1, 2,'2016-08-12',),
-		(2, 3,'2012-12-31',);
+INSERT INTO enTeteCommande (idUtilisateur, idStatut, prixTotal, dateCommande)
+	VALUES  (1, 1, 50.50,'2019-12-12'),
+		(2, 2, 200.00,'2020-12-12'),
+		(3, 3,250.00,'2014-12-12');
+		
 		
 INSERT INTO detailsCommande (idEnTeteCommande, idArticle, prixUnitaire)
 	VALUES  (1, 1, 50.50),
 		(2, 2, 200.00),
-		(3, 3, 100.00),
-		(2, 1, 50.50),
-		(6, 2, 200.00),
-		(7, 3, 100.00),
-                (7, 1, 50.50),
-		(5, 2, 200.00),
-		(4, 3, 100.00);*/
-INSERT INTO panier (idUtilisateur, idArticle)
+		(3, 3, 250.00);
+		
+/*INSERT INTO panier (idUtilisateur, idArticle)
 	VALUES  (1,1),
 		(1,2),
-		(3,2);	
+		(3,2);*/
+		
+/*Procédure stocké*/
+DELIMITER |
+CREATE PROCEDURE Commande (IN idUtilisateur INT)
+BEGIN 
+	DECLARE idLast INT;
+	DECLARE prixTotal NUMERIC(10,2);
+	/* on commence la transaction*/
+	START TRANSACTION;
 
+	SELECT SUM(a.prixArticle) INTO prixTotal
+	FROM panier p
+	INNER JOIN articles a 
+	ON a.idArticle = p.idArticle
+	WHERE idUtilisateur = idUtilisateur;
+			
+	 /* on crée la ligne de l'en tête*/
+	INSERT INTO entetecommande (idUtilisateur, idStatut, dateCommande, prixTotal)
+	VALUES (idUtilisateur, 1, NOW(), prixTotal);
+	
+	/* on vient mettre l'id de cette ligne dans une variables*/ 
+	SET idLast= LAST_INSERT_ID();
+	
+	/* on crée les lignes des détails*/ 
+	INSERT INTO detailscommande (idEnTeteCommande, idArticle, prixUnitaire)
+	SELECT idLast, p.idArticle, a.prixArticle
+	FROM panier p
+	INNER JOIN articles a 
+		ON a.idArticle = p.idArticle
+	WHERE p.idUtilisateur = idUtilisateur;
+
+	/* on crée le panier*/ 
+	DELETE FROM panier WHERE idUtilisateur = idUtilisateur;
+	 /*Si tout se passe bien, la transaction est validée*/ 
+	COMMIT;
+END |
+DELIMITER ;
 

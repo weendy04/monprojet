@@ -1,5 +1,5 @@
 <?php
-require 'models/detailsCommande.php';
+require 'models/commande.php';
 session_start();
 
 if(!empty($_POST['idEnTeteCommande']))

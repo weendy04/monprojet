@@ -24,8 +24,7 @@ ob_start();
 					<td><?=$utilisateur['email']?></td>
 					<td><?=$utilisateur['idRole']?></td>
 					<?php if($_SESSION['idUtilisateur'] != $utilisateur['idUtilisateur']):?>
-						<td>		
-											
+						<td>				
 							<?php  if($utilisateur['idRole'] == 2):?>
 								<!-- Promouvoir un utilisateur au grade supérieur -->		
 								<form method ='post' action="role">

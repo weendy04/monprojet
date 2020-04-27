@@ -7,6 +7,7 @@ ob_start();
             <th scope="col">#</th>
             <th scope="col">Statut</th>
 			<th scope="col">Prix total</th>
+			<th scope="col">Date</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -15,7 +16,8 @@ ob_start();
 				<tr>
 					<th scope="row"><?=$commande['idEnTeteCommande']?></th>
 					<td><?=$commande['nomStatut']?></td>
-					<td><?//=$commande['Prix total']?></td>
+					<td><?=$commande['prixTotal']?></td>
+					<td><?=$commande['dateCommande']?></td>
 					<td>
 						<div class="row">
 							<form method ='post' action="detailsCommandes">

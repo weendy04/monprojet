@@ -26,6 +26,7 @@
 					<a class="dropdown-item" href="adminCommandes">Voir les commandes</a>
 					<a class="dropdown-item" href="superAdminReactiver">Réactiver compte</a>
 					<a class="dropdown-item" href="adminReactiverArticleListe">Réactiver article</a>
+					<a class="dropdown-item" href="graphiqueVente">Graphique des ventes</a>
 				</div>	 
 			</li>
 			<?php endif?>
@@ -40,6 +41,7 @@
 						<a class="dropdown-item" href="adminArticles">Voir articles</a>
 						<a class="dropdown-item" href="adminCommandes">Voir les commandes</a>
 						<a class="dropdown-item" href="adminActiverArticle">Réactiver article</a>
+					<a class="dropdown-item" href="graphiqueVente">Graphique des ventes</a>
 					</div>	 
 				</li>
 			<?php endif?>

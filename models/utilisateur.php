@@ -7,7 +7,7 @@ function getUtilisateur($email) {
     $reponse = $db->prepare(
 	'SELECT *
 	FROM utilisateurs
-	WHERE email = :email'
+	WHERE email = :email and isActive = 1'
 	);
     $reponse->execute(array('email' => $email));
     $donnees = $reponse->fetch();
