@@ -1,6 +1,6 @@
 <?php
 require 'models/commande.php';
-session_start();
+//session_start();
 if(!empty($_POST['idEnTeteCommande']))
 {
     $utilisateur = updateEnTeteCommandes_idStatut($_POST['idEnTeteCommande'], $_POST['idStatut']);

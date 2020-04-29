@@ -1,6 +1,6 @@
 <?php
 require 'models/article.php';
-session_start();
+//session_start();
 
 if(!empty($_POST['idArticle']))
 {

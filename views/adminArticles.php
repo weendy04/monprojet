@@ -19,16 +19,12 @@ ob_start();
 				<th scope="row"><?=$article['idArticle']?></th>
 				<td><?=$article['nomArticle']?></td>
 				<td><?=$article['prixArticle']?></td>
-				<td><?=$article['descriptionArticle']?></td>
+				<td><?=str_replace("_"," ", $article['descriptionArticle'])?></td>
 				<td><?=$article['nomImageArticle']?></td>
 				<td>
 					 <div class="row">
 							<form method ='post' action="formulaireModificationArticle">
 								<input type="hidden" name="idArticle" value=<?=$article['idArticle']?>>
-								<input type="hidden" name="nomArticle" value=<?=$article['nomArticle']?>>
-								<!--<input type="hidden" name="prixArticle" value="<?//=$article['prixArticle']?>">	-->			
-								<input type="hidden" name="descriptionArticle" value=<?=$article['descriptionArticle']?>>					
-								<input type="hidden" name="nomImageArticle" value=<?=$article['nomImageArticle']?>>
 								<button class="btn btn-outline-success" type="submit">Modifier</button> 
 							</form>	
 							<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$article['idArticle']?>">

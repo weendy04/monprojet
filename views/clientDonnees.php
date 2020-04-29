@@ -17,7 +17,10 @@ ob_start();
             <td><?=$_SESSION['email']?></td>
             <td>
                 <div class="row">
-					<a class="btn btn-outline-success" href="/formulaireModification">Modifier</a>
+					<form method ='post' action="formulaireModification">
+						<input type="hidden" name="idUtilisateur" value=<?=$_SESSION['idUtilisateur']?>>
+						<button class="btn btn-outline-success" type="submit">Modifier</button> 
+					</form>	
                     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?= $_SESSION['idUtilisateur']?>">
                         Supprimer
                     </button>

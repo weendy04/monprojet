@@ -2,18 +2,37 @@
 ob_start();
 ?>
 <div class="container">
-    <h3>Prix: </h3>
-	 <div><?=$article['prixArticle']?> €</div>
-	</br>
-    <div><img class="card-img-top" src="/images/<?=$article['nomImageArticle']?>" alt="Card image cap"></div>
-	<h3>Description</h3>
-    <div><?=$article['descriptionArticle']?></div>
-</div>
-</br>
-<button class="btn btn-info add_cart" idArticle="<?= $article['idArticle']?>">Ajouter au panier</button>
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Article</th>
+			<th scope="col">Prix</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tr>
+		<td><?=$article['nomArticle']?></td>
+		<td><?=$article['prixArticle']?> €</td>
+		<td></td>
+	</tr>
+		<tr> 
+			<th>Desciption</th>
+			<th></th>
+			<th></th>
+		</tr> 
+	<tr>
+		<td><?=str_replace("_"," ", $article['descriptionArticle'])?></td>
+		<td><img class="card-img-top" src="/images/<?=$article['nomImageArticle']?>" alt="Card image cap"><td>
+		<td>
+			<form method="post" action="panierAjouter">
+				<input type="hidden" name="idArticle" value=<?=$article['idArticle']?>>
+				<button class="col btn btn-info add_cart">Ajouter au panier</button>
+			</form>
+		<td>
+	</tr>
+</table>
 <?php
-$title = $article['nomArticle'];
+$title = 'Détail article';
 $content = ob_get_clean();
-include 'views/includes/layout.php';
+include 'includes/layout.php';
 ?> 
-

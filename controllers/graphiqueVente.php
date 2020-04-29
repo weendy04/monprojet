@@ -1,6 +1,6 @@
 <?php
 require 'models/commande.php';
-session_start();
+//session_start();
 	$articles = getArticleGraph();
 	// supprime les données dans mon json
 	unset($s_file);
@@ -12,12 +12,14 @@ try {
 		// On crée le tableau JSON
 		$tableau_pour_json = array();
 
-	 foreach ($articles as $article)  {
-	// On ajoute le nouvel élement
-	array_push( $tableau_pour_json, array(
-		'Nb_Article' => $article["Nb_Article"],
-		'nomArticle' => $article["nomArticle"]
-	));
+	 foreach ($articles as $article)  
+	 {
+		// On ajoute le nouvel élement
+		array_push( $tableau_pour_json, array
+		(
+			'Nb_Article' => $article["Nb_Article"],
+			'nomArticle' => $article["nomArticle"]
+		));
 	 }
 	// On réencode en JSON
 	$contenu_json = json_encode($tableau_pour_json);

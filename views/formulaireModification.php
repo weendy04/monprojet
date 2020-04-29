@@ -3,23 +3,23 @@ ob_start();
 ?>
 <div class="container">
 	<form method="post">
-        <input type="hidden" name="idUtilisateur" value=<?=$_SESSION['idUtilisateur']?>>
+        <input type="hidden" name="idUtilisateur" value=<?=$utilisateur['idUtilisateur']?>>
 	  <div class="form-group row">
 		<label for="nom" class="col-sm-2 col-form-label">Nom</label>
 		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="nom" name="nom" required value=<?=$_SESSION['nom']?>>
+		  <input type="text" class="form-control" id="nom" name="nom" required value=<?=$utilisateur['nom']?>>
 		</div>
 	  </div>
 	  <div class="form-group row">
 		<label for="prenom" class="col-sm-2 col-form-label">Prenom</label>
 		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="prenom" name="prenom" required value=<?=$_SESSION['prenom']?>>
+		  <input type="text" class="form-control" id="prenom" name="prenom" required value=<?=$utilisateur['prenom']?>>
 		</div>
 	  </div>
 	  <div class="form-group row">
 		<label for="email" class="col-sm-2 col-form-label">Email</label>
 		<div class="col-sm-10">
-		  <input type="email" class="form-control" id="email" name="email" required value=<?=$_SESSION['email']?>>
+		  <input type="email" class="form-control" id="email" name="email" required value=<?=$utilisateur['email']?>>
 		</div>
 	  </div>
 	  <div class="form-group row">

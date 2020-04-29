@@ -1,7 +1,7 @@
 <?php
 require 'models/utilisateur.php';
 $error = '';
-session_start();
+//session_start();
 if(!empty($_POST))
 {
 	if(!empty($_POST['email']) && !empty($_POST['mdp']))
@@ -20,7 +20,7 @@ if(!empty($_POST))
 			else 
 			{
 				// On ouvre la session
-				session_start();
+				//session_start();
 				// On enregistre le données en session			
 				$_SESSION['idUtilisateur'] = $utilisateur['idUtilisateur'];
 				$_SESSION['email'] = $utilisateur['email'];

@@ -18,6 +18,15 @@ function getArticles_idArticle($idArticle) {
     $reponse->closeCursor();
     return $donnees;
 }
+/* Avoir un article avec son nom*/
+function getArticles_urlArticle($urlArticle) {
+    $db = getDb();
+    $reponse = $db->prepare('SELECT * FROM articles WHERE urlArticle = :urlArticle');
+    $reponse->execute(array('urlArticle' => $urlArticle));
+    $donnees = $reponse->fetch();
+    $reponse->closeCursor();
+    return $donnees;
+}
 /* modifier un article */
 function updateArticles_idArticle($idArticle, $values) {
     $query = 'UPDATE articles SET';

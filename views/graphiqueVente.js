@@ -31,7 +31,8 @@
           ['Supersaurus (super lizard)', 30.5],
           ['Tyrannosaurus (tyrant lizard)', 15.2],
           ['Ultrasaurus (ultra lizard)', 30.5],
-          ['Velociraptor (swift robber)', 1.8]]);
+          ['Velociraptor (swift robber)', 1.8]
+		  ]);
 
 		   var options = {
 			title: 'Article',
@@ -42,4 +43,11 @@
         var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
-</script>
+</script>// [
+					  ['Article', 'Nb_Article'],
+					  ['Amoire', 2],
+					  ['Cage', 10],
+					  ['Bougeoir', 20],
+					  ['Poire', 15],
+					  ['Parc', 8]
+					// ]

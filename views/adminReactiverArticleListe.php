@@ -19,7 +19,7 @@ ob_start();
 				<th scope="row"><?=$article['idArticle']?></th>
 				<td><?=$article['nomArticle']?></td>
 				<td><?=$article['prixArticle']?></td>
-				<td><?=$article['descriptionArticle']?></td>
+				<td><?=str_replace("_"," ", $article['descriptionArticle'])?></td>
 				<td><?=$article['nomImageArticle']?></td>
 				<td>
 					 <div class="row">			

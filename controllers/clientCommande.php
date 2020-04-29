@@ -1,6 +1,6 @@
 <?php
 require 'models/commande.php';
-session_start();
+//session_start();
 
 $commandes = getEnTeteCommandes_idUtilisateur($_SESSION['idUtilisateur']);
 

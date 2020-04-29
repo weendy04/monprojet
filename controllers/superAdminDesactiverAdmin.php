@@ -1,6 +1,6 @@
 <?php
 require 'models/utilisateur.php';
-session_start();
+//session_start();
 if(empty($_SESSION['email'])){
     header('Location: index');
     exit();

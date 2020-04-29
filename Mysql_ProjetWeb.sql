@@ -7,7 +7,7 @@ CREATE TABLE roles(idRole INT PRIMARY KEY AUTO_INCREMENT, nomRole VARCHAR(255))E
 CREATE TABLE utilisateurs (idUtilisateur INT PRIMARY KEY AUTO_INCREMENT, idRole INT, nom VARCHAR(255), prenom VARCHAR(255), email VARCHAR(500) UNIQUE, mdp VARCHAR(255), isActive INT, FOREIGN KEY (idRole) REFERENCES roles (idRole) )ENGINE = INNODB;
 
 /*Article*/
-CREATE TABLE articles (idArticle INT PRIMARY KEY AUTO_INCREMENT, nomArticle VARCHAR(255), prixArticle NUMERIC (10,2), descriptionArticle VARCHAR(500), nomImageArticle VARCHAR(255), isActive INT)ENGINE = INNODB;
+CREATE TABLE articles (idArticle INT PRIMARY KEY AUTO_INCREMENT, urlArticle VARCHAR(255) UNIQUE, nomArticle VARCHAR(255), prixArticle NUMERIC (10,2), descriptionArticle VARCHAR(500), nomImageArticle VARCHAR(255), isActive INT)ENGINE = INNODB;
 /*Commande*/
 CREATE TABLE panier (idPanier INT PRIMARY KEY AUTO_INCREMENT, idUtilisateur INT, idArticle INT, FOREIGN KEY (idUtilisateur) REFERENCES utilisateurs (idUtilisateur), FOREIGN KEY (idArticle) REFERENCES articles (idArticle))ENGINE = INNODB;
 CREATE TABLE statut(idStatut INT PRIMARY KEY AUTO_INCREMENT, nomStatut VARCHAR(255))ENGINE = INNODB;
@@ -27,16 +27,16 @@ INSERT INTO utilisateurs (idRole, nom, prenom, email, mdp, isActive) -- /!\ Le m
 		(3, 'Client', 'Wendy', 'Client.wendy@gmail.com', '$2y$10$CYs4Co9bBi42jx.ct9M1e.z9uBwlRq1R7/DAL2Fei5lkw2dooLBEO',1);
 
 /*Article*/				
-INSERT INTO articles (nomArticle, prixArticle, descriptionArticle, nomImageArticle, isActive)
-	VALUES  ('Armoire', 50.50, 'Armoire de rangement : dimension 100x50x80', 'armoire.jpg',1),
-		('Cage', 200.00, 'Cage pour animaux: dimension 100x100x150', 'cage.jpg',1),
-		('Parc', 250.00, 'Parc pour animaux: dimension 200x120x80', 'parc.jpg',1),
-		('Armoire1', 40.50, 'Armoire de rangement: dimension 90x40x60', 'armoire.jpg',1),
-		('Cage1', 150.00, 'Cage pour animaux: dimension 100x50x80', 'cage.jpg',1),
-		('Parc1', 300.00, 'Parc pour animaux: dimension 250x180x80', 'parc.jpg',0),
-		('Armoire2', 30.50, 'Armoire de rangement: dimension 50x50x50', 'armoire.jpg',1),
-		('Cage2', 100.00, 'Cage pour animaux: dimension 50x50x40', 'cage.jpg',1),
-		('Parc2', 100.00, 'Parc pour animaux: dimension 150x90x60', 'parc.jpg',0);
+INSERT INTO articles (urlArticle, nomArticle, prixArticle, descriptionArticle, nomImageArticle, isActive)
+	VALUES  ('armoire', 'Armoire', 50.50, 'Armoire de rangement : dimension 100x50x80', 'armoire.jpg',1),
+		('cage', 'Cage', 200.00, 'Cage pour animaux: dimension 100x100x150', 'cage.jpg',1),
+		('parc', 'Parc', 250.00, 'Parc pour animaux: dimension 200x120x80', 'parc.jpg',1),
+		('armoire1', 'Armoire1', 40.50, 'Armoire de rangement: dimension 90x40x60', 'armoire.jpg',1),
+		('cage1', 'Cage1', 150.00, 'Cage pour animaux: dimension 100x50x80', 'cage.jpg',1),
+		('parc1', 'Parc1', 300.00, 'Parc pour animaux: dimension 250x180x80', 'parc.jpg',0),
+		('armoire2', 'Armoire2', 30.50, 'Armoire de rangement: dimension 50x50x50', 'armoire.jpg',1),
+		('cage2', 'Cage2', 100.00, 'Cage pour animaux: dimension 50x50x40', 'cage.jpg',1),
+		('parc2', 'Parc2', 100.00, 'Parc pour animaux: dimension 150x90x60', 'parc.jpg',0);
 				
 /*Commande*/
 INSERT INTO statut (nomStatut)

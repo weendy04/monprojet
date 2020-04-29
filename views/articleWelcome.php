@@ -5,7 +5,7 @@
 				<img class="card-img-top" src="/images/<?=$article['nomImageArticle']?>" alt="Card image cap">
 				<div class="card-body">
 					<h5 class="card-title"><?=$article['nomArticle']?></h5>
-					<p class="card-text"><?=$article['descriptionArticle']?></p>
+					<p class="card-text"><?=str_replace("_"," ", $article['descriptionArticle'])?></p>
 					<span class="badge badge-pill badge-info"><?=$article['prixArticle']?> €</span>
 				</div>
 				<div class="card-footer container">
