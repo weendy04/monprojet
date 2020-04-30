@@ -5,8 +5,6 @@ Installation
 - crée un dossier "monprojet" est y mettre les dossiers et fichiers de github 
 
 
-installer => https://nodejs.org/en/
-
 Config de Apache avec Wamp:
 ===========================
 - C:\Windows\System32\drivers\etc\hosts => 
