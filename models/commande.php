@@ -13,7 +13,8 @@ function getEnTeteCommandes() {
 	INNER JOIN utilisateurs AS u 
 		ON e.idUtilisateur = u.idUtilisateur
 	INNER JOIN statut AS s 
-		ON e.idStatut = s.idStatut');
+		ON e.idStatut = s.idStatut
+		order by e.dateCommande desc');
     $donnees = $reponse->fetchAll();
     $reponse->closeCursor(); 
     return $donnees;
@@ -138,11 +139,48 @@ function getArticleGraph() {
 				FROM detailsCommande d
 				inner join articles a
 					on d.idArticle = a.idArticle
-				GROUP BY d.idArticle';
+				GROUP BY d.idArticle
+				ORDER BY COUNT(d.idArticle) desc';
 	$reponse = $db->query($query);
 	$donnees = $reponse->fetchAll();
 	$reponse->closeCursor(); // Termine le traitement de la requête
 	return $donnees;
+}
+
+function getJson($articles)
+{
+	// supprime les données dans mon json
+	//unset($s_file);
+	
+	//$s_file = 'json/completerArticle.json';
+	
+	try {
+		// On crée le tableau JSON
+		$tableau_pour_json = array();
+
+		foreach ($articles as $article)  
+		{
+			// On ajoute le nouvel élement
+			array_push($tableau_pour_json, array(
+					'Article' => $article["nomArticle"],
+					'Nombre' => $article["Nb_Article"]
+				)
+			);
+		}
+		
+		echo json_encode($tableau_pour_json);
+
+		// On réencode en JSON
+		//$contenu_json = json_encode($tableau_pour_json);
+
+		// On stocke tout le JSON
+		//file_put_contents($s_file, $contenu_json);
+
+		//echo "Vos informations ont été enregistrées";
+	}
+    catch(Exception $e) {
+		echo "Erreur : ".$e->getMessage();
+    }
 }
 
 ?>

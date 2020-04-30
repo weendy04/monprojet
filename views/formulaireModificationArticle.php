@@ -20,7 +20,7 @@ ob_start();
 	  <div class="form-group row">
 		<label for="descriptionArticle" class="col-sm-2 col-form-label">description</label>
 		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="descriptionArticle" name="descriptionArticle" required value=<?=str_replace("_"," ", $article['descriptionArticle'])?>>
+		  <input type="text" class="form-control" id="descriptionArticle" name="descriptionArticle" required value="<?=str_replace("_"," ", $article['descriptionArticle'])?>">
 		</div>
 	  </div>
 	  <div class="form-group row">
