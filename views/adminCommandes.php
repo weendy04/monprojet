@@ -48,10 +48,7 @@ ob_start();
 					</div>
 				</td>
 				<td>
-					<form method ='post' action="detailsCommandes">
-						<input type="hidden" name="idEnTeteCommande" value=<?=$commande['idEnTeteCommande']?>>
-						<button class="btn btn-outline-primary" type="submit">Détail</button>
-					</form>	 
+					<a href="<?= ROOT_PATH.'detailsCommande/'.$commande['idEnTeteCommande']?>" class="col btn btn-info add_cart">Détail</a>
 				</td>
 			</tr>
         <?php endforeach ?>

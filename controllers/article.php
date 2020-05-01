@@ -2,9 +2,9 @@
 require 'models/article.php';
 //session_start();
 
-if(!empty($_POST['idArticle']))
+if(!empty(REQ_TYPE_ID))
 {
-    $article = getArticles_idArticle($_POST['idArticle']);
+    $article = getArticles_urlArticle(REQ_TYPE_ID);
 }
 include 'views/article.php';
 ?>

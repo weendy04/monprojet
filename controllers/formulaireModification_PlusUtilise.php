@@ -37,6 +37,5 @@ if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) 
 		exit();
 	}
 }
-
 include 'views/formulaireModification.php';
 ?>

@@ -19,15 +19,14 @@ ob_start();
 				<th scope="row"><?=$article['idArticle']?></th>
 				<td><?=$article['nomArticle']?></td>
 				<td><?=$article['prixArticle']?></td>
-				<td><?=str_replace("_"," ", $article['descriptionArticle'])?></td>
+				<td><?=str_replace("-"," ", $article['descriptionArticle'])?></td>
 				<td><?=$article['nomImageArticle']?></td>
 				<td>
 					 <div class="row">
-							<form method ='post' action="formulaireModificationArticle">
-								<input type="hidden" name="idArticle" value=<?=$article['idArticle']?>>
-								<button class="btn btn-outline-success" type="submit">Modifier</button> 
-							</form>	
-							<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$article['idArticle']?>">
+							
+						<a href="<?= ROOT_PATH.'formulaireArticle/'.$article['idArticle'].'/modifier' ?>" class="btn btn-outline-success">Modifier</a>
+								
+						<button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal<?=$article['idArticle']?>">
 							Désactiver
 						</button>
 						<?php include 'adminDesactiverArticle.php' ?>

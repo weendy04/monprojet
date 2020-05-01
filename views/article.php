@@ -21,13 +21,10 @@ ob_start();
 			<th></th>
 		</tr> 
 	<tr>
-		<td><?=str_replace("_"," ", $article['descriptionArticle'])?></td>
+		<td><?=str_replace("-"," ", $article['descriptionArticle'])?></td>
 		<td><img class="card-img-top" src="/images/<?=$article['nomImageArticle']?>" alt="Card image cap"><td>
 		<td>
-			<form method="post" action="panierAjouter">
-				<input type="hidden" name="idArticle" value=<?=$article['idArticle']?>>
-				<button class="col btn btn-info add_cart">Ajouter au panier</button>
-			</form>
+			<a href="<?= ROOT_PATH.'panier/'.$article['idArticle'].'/ajouter' ?>" class="col btn btn-info add_cart">Ajouter au panier</a>
 		<td>
 	</tr>
 </table>

@@ -5,9 +5,9 @@ require 'models/commande.php';
 if(!empty($_SESSION['idUtilisateur']))
 {
 
-newCommande($_SESSION['idUtilisateur']);
+	newCommande($_SESSION['idUtilisateur']);
 	 
-    header('Location: clientCommande');
+    header('Location: '.ROOT_PATH.'clientCommande');
     exit();
 }
 header('Location: index');
