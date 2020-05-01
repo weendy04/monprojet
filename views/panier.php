@@ -19,11 +19,7 @@ ob_start();
 						<td><?=$article['nomArticle']?></td>
 						<td><?=$article['prixArticle']?></td>
 						<td>
-							 <div class="row">			
-								<form method ='post' action="retirerArticlePanier">
-								<input type="hidden" name="idPanier" value=<?=$article['idPanier']?>>
-								<button class="btn btn-outline-danger" type="submit">Retirer</button>
-							</form>
+							 <a href="<?= ROOT_PATH.'panier/'.$article['idPanier'].'/retirer' ?>" class="btn btn-outline-danger">retirer</a>
 							</div>
 						</td>
 					</tr>

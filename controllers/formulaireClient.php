@@ -4,7 +4,7 @@ require 'models/utilisateur.php';
 
 if (REQ_ACTION == "modifier") 
 {
-	$utilisateur = getUtilisateurs_idUtilisateur($_POST['idUtilisateur']);
+	$utilisateur = getUtilisateurs_idUtilisateur(REQ_TYPE_ID);
 	if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['ancienMdp']) && !empty($_POST['mdp']) && !empty($_POST['mdpVerif']))
 	{
 		

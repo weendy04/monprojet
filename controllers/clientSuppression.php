@@ -8,7 +8,7 @@ if(empty($_SESSION['email'])){
 
 if(!empty($_SESSION['idUtilisateur']))
 {
-    $utilisateur = isActiveUtilisateur($_SESSION['idUtilisateur']);
-	header('Location: deconnexion');
+    $utilisateur = isActiveUtilisateur($_SESSION['idUtilisateur'],0);
+	header('Location:'.ROOT_PATH.'deconnexion');
 	exit();
 }
