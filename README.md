@@ -22,7 +22,7 @@ Config de Apache avec Wamp:
 		- #Include conf/extra/monprojet.conf
 - dans le httpd-vhosts.conf => 
 	- Mettre en commentaire tout ce qu'il y a dedans avec  un "#". 
-	/!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
+	- /!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
 	- Rajouter ces lignes:
 		#####
 		## monprojet.weendy
@@ -43,14 +43,14 @@ Config de Apache avec Wamp:
 Test projet :
 =============
  - Connexion: 
-   SuperAdmin.wendy@gmail.com
-   Admin.wendy@gmail.com
-   Client.wendy@gmail.com
+   - SuperAdmin.wendy@gmail.com
+   - Admin.wendy@gmail.com
+   - Client.wendy@gmail.com
    
    MDP => projetweb
  
  - Ajouter un article:
-   Article : "Poire" ou "bougeoir"
-   prix : comme vous voulez
-   description : comme vous voulez
-   nom image : "poire.jpg" ou "bougeoir.jpg"
+   - Article : "Poire" ou "bougeoir"
+   - prix : comme vous voulez
+   - description : comme vous voulez
+   - nom image : "poire.jpg" ou "bougeoir.jpg"
