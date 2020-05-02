@@ -24,23 +24,24 @@ Config de Apache avec Wamp:
 - dans le httpd-vhosts.conf => 
 	- Mettre en commentaire tout ce qu'il y a dedans avec  un "#". 
 	<br> /!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
-	- Rajouter ces lignes:
-		<br> #####
-		<br> ## monprojet.weendy
-		<br> ## DOMAINE de monprojet
-		<br> #####
+		- Rajouter ces lignes:
+							<br> #####
+							<br> ## monprojet.weendy
+							<br> ## DOMAINE de monprojet
+							<br> #####
 
-		<br> <Directory "C:/wamp/www/monprojet">
-		<br> AllowOverride All
-		<br> Options Indexes MultiViews FollowSymLinks
-		<br> Require all granted
-		<br> </Directory>
+							<br> <Directory "C:/wamp/www/monprojet">
+							<br> AllowOverride All
+							<br> Options Indexes MultiViews FollowSymLinks
+							<br> Require all granted
+							<br> <"/ Directory>
 
-		<br> <VirtualHost *:80>
-		<br> DocumentRoot C:/wamp/www/monprojet
-		<br> ServerName monprojet.weendy
-		<br> </VirtualHost>
-		
+							<br> <VirtualHost *:80>
+							<br> DocumentRoot C:/wamp/www/monprojet
+							<br> ServerName monprojet.weendy
+							<br> <"/ VirtualHost>
+
+/!\ n'oublier pas d'enlever les espaces après les "/".		
 Test projet :
 =============
  - Connexion: 
