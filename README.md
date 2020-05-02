@@ -9,8 +9,8 @@ Config de Apache avec Wamp:
 ===========================
 - C:\Windows\System32\drivers\etc\hosts => 
 	- Vous devriez lire vers la ligne 20 quelque chose comme ceci :
-		127.0.0.1 localhost
-		::1 localhost
+	&emsp; &emsp;	127.0.0.1 localhost
+	&emsp; &emsp;	::1 localhost
 
 	- Rajoutez la ligne :
 	127.0.0.1 monprojet.weendy 
