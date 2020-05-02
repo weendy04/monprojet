@@ -12,7 +12,7 @@ ob_start();
 			<?php foreach($commandes as $commande):?>
 			<tr>
 				<td><?=$commande['nomArticle']?></td>
-				<td><?=$commande['prixArticle']?></td>
+				<td><?=$commande['prixUnitaire']?></td>
 				
 			</tr>
         <?php endforeach ?>

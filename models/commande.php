@@ -52,7 +52,7 @@ function updateEnTeteCommandes_idStatut($idEnTeteCommande, $idStatut) {
 function getDetailsCommande_idEnTeteCommande($idEnTeteCommande) {
     $db = getDb();
     $reponse = $db->prepare(
-	'SELECT d.idDetailsCommande, a.nomArticle, a.prixArticle 
+	'SELECT d.idDetailsCommande, a.nomArticle, d.prixUnitaire
 	FROM detailsCommande AS d 
 	INNER JOIN articles AS a
 		ON a.idArticle = d.idArticle 

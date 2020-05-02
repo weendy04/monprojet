@@ -18,7 +18,7 @@ if (REQ_ACTION == "ajouter")
 			$isActive = 1;
 			$values = array('urlArticle' => $urlArticle,'nomArticle' => $nomArticle, 'prixArticle' =>$prixArticle, 'descriptionArticle' => $descriptionArticle, 'nomImageArticle' => $nomImageArticle, 'isActive' =>$isActive);
 			$article = newArticle($values);
-			header("Location: ".ROOT_PATH."index");
+			header("Location: ".ROOT_PATH."adminArticles");
 			exit();
 	}
 	include 'views/formulaireAjouterArticle.php';

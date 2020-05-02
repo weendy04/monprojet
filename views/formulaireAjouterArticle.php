@@ -15,7 +15,7 @@ ob_start();
 	  <div class="form-group row">
 		<label for="prixArticle" class="col-sm-2 col-form-label">Prix</label>
 		<div class="col-sm-10">
-		  <input type="number" class="form-control" id="prixArticle" name="prixArticle" required>
+		  <input type="number" class="form-control" id="prixArticle" step ='0.05' min = 1 name="prixArticle" required>
 		</div>
 	  </div>
 	  <div class="form-group row">

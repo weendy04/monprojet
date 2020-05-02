@@ -36,11 +36,11 @@
 					 Menu administrateur
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="<?= ROOT_PATH.'adminClients'?>">Voir clients</a>
-						<a class="dropdown-item" href="<?= ROOT_PATH.'formulaireAjouterArticle'?>">Ajouter articles</a>
-						<a class="dropdown-item" href="<?= ROOT_PATH.'adminArticles'?>">Voir articles</a>
-						<a class="dropdown-item" href="<?= ROOT_PATH.'adminCommandes'?>">Voir les commandes</a>
-						<a class="dropdown-item" href="<?= ROOT_PATH.'adminActiverArticle'?>">Réactiver article</a>
+					<a class="dropdown-item" href="<?= ROOT_PATH.'adminClients'?>">Voir clients</a>
+					<a class="dropdown-item" href="<?= ROOT_PATH.'formulaireArticle//ajouter'?>">Ajouter articles</a>
+					<a class="dropdown-item" href="<?= ROOT_PATH.'adminArticles'?>">Voir articles</a>
+					<a class="dropdown-item" href="<?= ROOT_PATH.'adminCommandes'?>">Voir les commandes</a>
+					<a class="dropdown-item" href="<?= ROOT_PATH.'adminReactiverArticleListe'?>">Réactiver article</a>
 					<a class="dropdown-item" href="<?= ROOT_PATH.'graphiqueVente'?>">Graphique des ventes</a>
 					</div>	 
 				</li>
