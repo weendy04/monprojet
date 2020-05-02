@@ -41,7 +41,8 @@ Config de Apache avec Wamp:
 							<br> ServerName monprojet.weendy
 							<br> </ VirtualHost>
 
-/!\ n'oublier pas d'enlever les espaces après les "/".		
+		<br> /!\ n'oublier pas d'enlever les espaces après les "/".	
+ 	
 Test projet :
 =============
  - Connexion: 
