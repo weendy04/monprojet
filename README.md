@@ -34,12 +34,12 @@ Config de Apache avec Wamp:
 							<br> AllowOverride All
 							<br> Options Indexes MultiViews FollowSymLinks
 							<br> Require all granted
-							<br> <"/ Directory>
+							<br> </ Directory>
 
 							<br> <VirtualHost *:80>
 							<br> DocumentRoot C:/wamp/www/monprojet
 							<br> ServerName monprojet.weendy
-							<br> <"/ VirtualHost>
+							<br> </ VirtualHost>
 
 /!\ n'oublier pas d'enlever les espaces après les "/".		
 Test projet :
