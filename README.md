@@ -25,10 +25,10 @@ Config de Apache avec Wamp:
 	- Mettre en commentaire tout ce qu'il y a dedans avec  un "#". 
 	<br> /!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
 		- Rajouter ces lignes:
-							#####
-							## monprojet.weendy
-							## DOMAINE de monprojet
-							#####
+							<br>#####
+							<br>## monprojet.weendy
+							<br>## DOMAINE de monprojet
+							<br>#####
 
 							<Directory "C:/wamp/www/monprojet">
 							AllowOverride All
