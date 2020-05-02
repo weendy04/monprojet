@@ -9,8 +9,8 @@ Config de Apache avec Wamp:
 ===========================
 - C:\Windows\System32\drivers\etc\hosts => 
 	- Vous devriez lire vers la ligne 20 quelque chose comme ceci :
-	&emsp; &emsp;	127.0.0.1 localhost
-	&emsp; &emsp;	::1 localhost
+	<br>	127.0.0.1 localhost
+	<br>	::1 localhost
 
 	- Rajoutez la ligne :
 	127.0.0.1 monprojet.weendy 
@@ -18,8 +18,8 @@ Config de Apache avec Wamp:
 - dans le httpd.conf => 
 	- rechercher cette ligne "# Secure (SSL/TLS) connections"
 	- une fois trouvé rajouter les deux lignes ci-dessous en dessous des #..
-		- #Include conf/extra/httpd-ssl.conf
-		- #Include conf/extra/monprojet.conf
+		<br> #Include conf/extra/httpd-ssl.conf
+		<br> #Include conf/extra/monprojet.conf
 - dans le httpd-vhosts.conf => 
 	- Mettre en commentaire tout ce qu'il y a dedans avec  un "#". 
 	- /!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
