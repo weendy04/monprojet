@@ -25,21 +25,21 @@ Config de Apache avec Wamp:
 	- Mettre en commentaire tout ce qu'il y a dedans avec  un "#". 
 	<br> /!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
 		- Rajouter ces lignes:
-							<br> #####
-							<br> ## monprojet.weendy
-							<br> ## DOMAINE de monprojet
-							<br> #####
+							#####
+							## monprojet.weendy
+							## DOMAINE de monprojet
+							#####
 
-							<br> <Directory "C:/wamp/www/monprojet">
-							<br> AllowOverride All
-							<br> Options Indexes MultiViews FollowSymLinks
-							<br> Require all granted
-							<br> </ Directory>
+							<Directory "C:/wamp/www/monprojet">
+							AllowOverride All
+							Options Indexes MultiViews FollowSymLinks
+							Require all granted
+							</ Directory>
 
-							<br> <VirtualHost *:80>
-							<br> DocumentRoot C:/wamp/www/monprojet
-							<br> ServerName monprojet.weendy
-							<br> </ VirtualHost>
+							<VirtualHost *:80>
+							DocumentRoot C:/wamp/www/monprojet
+							ServerName monprojet.weendy
+							</ VirtualHost>
 
 		<br> /!\ n'oublier pas d'enlever les espaces après les "/".	
  	
