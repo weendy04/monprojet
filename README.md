@@ -8,34 +8,38 @@ Installation
 Config de Apache avec Wamp:
 ===========================
 - C:\Windows\System32\drivers\etc\hosts => 
-- Vous devriez lire vers la ligne 20 quelque chose comme ceci :
-127.0.0.1 localhost
-::1 localhost
+	- Vous devriez lire vers la ligne 20 quelque chose comme ceci :
+		127.0.0.1 localhost
+		::1 localhost
 
-Rajoutez la ligne :
-127.0.0.1 monprojet.weendy 
+	- Rajoutez la ligne :
+	127.0.0.1 monprojet.weendy 
 
-- dans le httpd.conf => - rechercher cette ligne "# Secure (SSL/TLS) connections"
-					    - une fois trouvé rajouter les deux lignes ci-dessous en dessous des #..
-							- #Include conf/extra/httpd-ssl.conf
-							  #Include conf/extra/monprojet.conf
-- dans le httpd-vhosts.conf => - Mettre en commentaire tout ce qu'il y a dedans avec  un "#".
-							   - Rajouter ces lignes:
-									#####
-									## monprojet.weendy
-									## DOMAINE de monprojet
-									#####
+- dans le httpd.conf => 
+	- rechercher cette ligne "# Secure (SSL/TLS) connections"
+	- une fois trouvé rajouter les deux lignes ci-dessous en dessous des #..
+		- #Include conf/extra/httpd-ssl.conf
+		- #Include conf/extra/monprojet.conf
+- dans le httpd-vhosts.conf => 
+	- Mettre en commentaire tout ce qu'il y a dedans avec  un "#". 
+	/!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
+	- Rajouter ces lignes:
+		#####
+		## monprojet.weendy
+		## DOMAINE de monprojet
+		#####
 
-									<Directory "C:/wamp/www/monprojet">
-									AllowOverride All
-									Options Indexes MultiViews FollowSymLinks
-									Require all granted
-									</Directory>
+		<Directory "C:/wamp/www/monprojet">
+		AllowOverride All
+		Options Indexes MultiViews FollowSymLinks
+		Require all granted
+		</Directory>
 
-									<VirtualHost *:80>
-									DocumentRoot C:/wamp/www/monprojet
-									ServerName monprojet.weendy
-									</VirtualHost>
+		<VirtualHost *:80>
+		DocumentRoot C:/wamp/www/monprojet
+		ServerName monprojet.weendy
+		</VirtualHost>
+		
 Test projet :
 =============
  - Connexion: 
