@@ -22,23 +22,23 @@ Config de Apache avec Wamp:
 		<br> #Include conf/extra/monprojet.conf
 - dans le httpd-vhosts.conf => 
 	- Mettre en commentaire tout ce qu'il y a dedans avec  un "#". 
-	- /!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
+	<br> /!\ j'ai mis wamp, si vous avez téléchargé la version 64bits n'oublier pas de changer! /!\
 	- Rajouter ces lignes:
-		#####
-		## monprojet.weendy
-		## DOMAINE de monprojet
-		#####
+		<br> #####
+		<br> ## monprojet.weendy
+		<br> ## DOMAINE de monprojet
+		<br> #####
 
-		<Directory "C:/wamp/www/monprojet">
-		AllowOverride All
-		Options Indexes MultiViews FollowSymLinks
-		Require all granted
-		</Directory>
+		<br> <Directory "C:/wamp/www/monprojet">
+		<br> AllowOverride All
+		<br> Options Indexes MultiViews FollowSymLinks
+		<br> Require all granted
+		<br> </Directory>
 
-		<VirtualHost *:80>
-		DocumentRoot C:/wamp/www/monprojet
-		ServerName monprojet.weendy
-		</VirtualHost>
+		<br> <VirtualHost *:80>
+		<br> DocumentRoot C:/wamp/www/monprojet
+		<br> ServerName monprojet.weendy
+		<br> </VirtualHost>
 		
 Test projet :
 =============
@@ -50,7 +50,7 @@ Test projet :
    MDP => projetweb
  
  - Ajouter un article:
-   - Article : "Poire" ou "bougeoir"
-   - prix : comme vous voulez
-   - description : comme vous voulez
-   - nom image : "poire.jpg" ou "bougeoir.jpg"
+   <br> Article : "Poire" ou "bougeoir"
+   <br> prix : comme vous voulez
+   <br> description : comme vous voulez
+   <br> nom image : "poire.jpg" ou "bougeoir.jpg"
