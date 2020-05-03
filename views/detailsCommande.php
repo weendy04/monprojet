@@ -11,7 +11,7 @@ ob_start();
     <tbody>
 			<?php foreach($commandes as $commande):?>
 			<tr>
-				<td><?=$commande['nomArticle']?></td>
+				<td><?=str_replace("-"," ", $commande['nomArticle'])?></td>
 				<td><?=$commande['prixUnitaire']?></td>
 				
 			</tr>

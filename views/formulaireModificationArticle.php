@@ -8,7 +8,7 @@ ob_start();
 	  <div class="form-group row">
 		<label for="nomArticle" class="col-sm-2 col-form-label">Nom</label>
 		<div class="col-sm-10">
-		  <input type="text" class="form-control" id="nomArticle" name="nomArticle" required value=<?=$article['nomArticle']?>>
+		  <input type="text" class="form-control" id="nomArticle" name="nomArticle" required value="<?=str_replace("-"," ", $article['nomArticle'])?>">
 		</div>
 	  </div>
 	  <div class="form-group row">

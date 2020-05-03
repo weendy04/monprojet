@@ -11,7 +11,7 @@ ob_start();
 		</tr>
 	</thead>
 	<tr>
-		<td><?=$article['nomArticle']?></td>
+		<td><?=str_replace("-"," ", $article['nomArticle'])?></td>
 		<td><?=$article['prixArticle']?> €</td>
 		<td></td>
 	</tr>

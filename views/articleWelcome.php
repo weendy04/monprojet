@@ -3,7 +3,7 @@
 		<div class="card bg-light">
 			<img class="card-img-top" src="/images/<?=$article['nomImageArticle']?>" alt="Card image cap">
 			<div class="card-body">
-				<h5 class="card-title"><?=$article['nomArticle']?></h5>
+				<h5 class="card-title"><?=str_replace("-"," ", $article['nomArticle'])?></h5>
 				<p class="card-text"><?=str_replace("-"," ", $article['descriptionArticle'])?></p>
 				<span class="badge badge-pill badge-info"><?=$article['prixArticle']?> €</span>
 			</div>
