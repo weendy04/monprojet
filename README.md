@@ -45,10 +45,11 @@ Config de Apache avec Wamp:
  	
 Test projet :
 =============
- - Connexion: 
-   - SuperAdmin.wendy@gmail.com
-   - Admin.wendy@gmail.com
-   - Client.wendy@gmail.com
+- url du site : http://monprojet.weendy/
+- Connexion: 
+	- SuperAdmin.wendy@gmail.com
+	- Admin.wendy@gmail.com
+	- Client.wendy@gmail.com
    
    MDP => projetweb
  
