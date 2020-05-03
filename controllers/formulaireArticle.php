@@ -6,14 +6,14 @@ if (REQ_ACTION == "ajouter")
 {
 	if(!empty($_POST['nomArticle']) && !empty($_POST['prixArticle']) && !empty($_POST['descriptionArticle'])&& !empty($_POST['nomImageArticle']))
 	{
-			$nomArticle = $_POST['nomArticle'];
+			$nomArticle = str_replace(" ","-", $_POST['nomArticle']);
 			
 			/* je fais un remplacement des " " par "_" je met le tout en minuscule ensuite je vient enlever le dernier "_"  qui ne sert à rien*/
 			$urlArticle = str_replace(" ","-", strtolower($nomArticle));
-			$urlArticle = substr($urlArticle, 0, -1);
+			//$urlArticle = substr($urlArticle, 0, -1);
 			
 			$prixArticle = $_POST['prixArticle'];		
-			$descriptionArticle =  str_replace(" ","-", $_POST['descriptionArticle']);
+			$descriptionArticle = $_POST['descriptionArticle'];
 			$nomImageArticle = $_POST['nomImageArticle'];
 			$isActive = 1;
 			$values = array('urlArticle' => $urlArticle,'nomArticle' => $nomArticle, 'prixArticle' =>$prixArticle, 'descriptionArticle' => $descriptionArticle, 'nomImageArticle' => $nomImageArticle, 'isActive' =>$isActive);
@@ -31,7 +31,7 @@ if (REQ_ACTION == "modifier")
 	if(!empty(REQ_TYPE_ID)&& !empty ($_POST['nomArticle']) && !empty ($_POST['prixArticle']) && !empty ($_POST['descriptionArticle'])&& !empty ($_POST['nomImageArticle']))
 	{
 		$idArticle = $_POST['idArticle'];
-		$nomArticle = $_POST['nomArticle'];
+		$nomArticle = str_replace(" ","-", $_POST['nomArticle']);
 		/* je fais un remplacement des " " par "_" je met le tout en minuscule ensuite je vient enlever le dernier "_"  qui ne sert à rien*/
 		$urlArticle = str_replace(" ","-", strtolower($nomArticle));
 		//$urlArticle = substr($urlArticle, 0, -1);
