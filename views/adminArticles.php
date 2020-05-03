@@ -17,7 +17,7 @@ ob_start();
 			<?php if ($article['isActive'] == 1):?>	
 			<tr>
 				<th scope="row"><?=$article['idArticle']?></th>
-				<td><?=$article['nomArticle']?></td>
+				<td><?=str_replace("-"," ", $article['nomArticle'])?></td>
 				<td><?=$article['prixArticle']?></td>
 				<td><?=str_replace("-"," ", $article['descriptionArticle'])?></td>
 				<td><?=$article['nomImageArticle']?></td>
