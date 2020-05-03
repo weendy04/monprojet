@@ -162,7 +162,7 @@ function getJson($articles)
 		{
 			// On ajoute le nouvel élement
 			array_push($tableau_pour_json, array(
-					'Article' => $article["nomArticle"],
+					'Article' => str_replace("-"," ", $article['nomArticle']),
 					'Nombre' => $article["Nb_Article"]
 				)
 			);
